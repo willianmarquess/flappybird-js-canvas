@@ -2,9 +2,9 @@ export default class Player {
     constructor(contexto) {
         this.contexto = contexto;
         this.imgs = new Array(new Image(), new Image(), new Image());
-        this.imgs[0].src = '../assets/passaro1.png';
-        this.imgs[1].src = '../assets/passaro2.png';
-        this.imgs[2].src = '../assets/passaro3.png';
+        this.imgs[0].src = '/assets/passaro1.png';
+        this.imgs[1].src = '/assets/passaro2.png';
+        this.imgs[2].src = '/assets/passaro3.png';
         this.variaImg = 0;
         this.liga = true;
         this.velocidadeQueda = 0;

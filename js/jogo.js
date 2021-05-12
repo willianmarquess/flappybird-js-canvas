@@ -3,16 +3,6 @@ import Player from "./Player.js";
 import Cano from './Cano.js';
 import Chao from './Chao.js';
 
-var canvas = document.getElementById("meujogo");
-var contexto = canvas.getContext("2d");
-var fase = new Fase(contexto);
-var player = new Player(contexto);
-var cano = new Cano(contexto);
-var chao = new Chao(contexto);
-var gameStatus = 1;
-var pontos = 0;
-var podePontuar = true;
-
 
 document.addEventListener("DOMContentLoaded", () => {
  Start();
@@ -21,7 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function Start() {
     document.getElementsByTagName("body")[0].addEventListener("click", onClick);
     document.getElementsByTagName("body")[0].addEventListener("keydown", keyPress);
-     LoopGame();
+    var canvas = document.getElementById("meujogo");
+    var contexto = canvas.getContext("2d");
+    var fase = new Fase(contexto);
+    var player = new Player(contexto);
+    var cano = new Cano(contexto);
+    var chao = new Chao(contexto);
+    var gameStatus = 1;
+    var pontos = 0;
+    var podePontuar = true;
+    LoopGame();
 }
 
 function LoopGame() {
@@ -62,7 +61,7 @@ function LoopGame() {
             contexto.fillText("Pontos: " + pontos, 10, 20);
 
         } else if (gameStatus == 0) {
-            //document.location.reload(true);
+            Start();
         }
         requestAnimationFrame(LoopGame);
     }, 1000 / 50);

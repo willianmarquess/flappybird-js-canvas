@@ -78,7 +78,7 @@ function LoopGame(time) {
             contexto.fillText("Pontos: " + pontos, 10, 20);
 
         } else if (gameStatus == 0) {
-            Start();
+            //Start();
         }
         requestAnimationFrame(LoopGame);
 }

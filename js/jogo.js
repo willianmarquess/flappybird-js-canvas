@@ -13,15 +13,15 @@ var gameStatus = 1;
 var pontos = 0;
 var podePontuar = true;
 
-(() => {
-    Start();
-    LoopGame();
-})();
+
+document.addEventListener("DOMContentLoaded", () => {
+ Start();
+});
 
 function Start() {
     document.getElementsByTagName("body")[0].addEventListener("click", onClick);
     document.getElementsByTagName("body")[0].addEventListener("keydown", keyPress);
-
+     LoopGame();
 }
 
 function LoopGame() {
@@ -62,7 +62,7 @@ function LoopGame() {
             contexto.fillText("Pontos: " + pontos, 10, 20);
 
         } else if (gameStatus == 0) {
-            document.location.reload(true);
+            //document.location.reload(true);
         }
         requestAnimationFrame(LoopGame);
     }, 1000 / 50);

@@ -1,10 +1,11 @@
+import { Constantes } from './Constantes.js'
 export default class Cano {
     constructor(contexto) {
         this.contexto = contexto;
         this.imgCanoTopo = new Image();
-        this.imgCanoTopo.src = '/flappybird-js-canvas/assets/cano_topo.png';
+        this.imgCanoTopo.src = `${Constantes.CONTEXT_PATH}/assets/cano_topo.png`;
         this.imgCanoBaixo = new Image();
-        this.imgCanoBaixo.src = '/flappybird-js-canvas/assets/cano_baixo.png';
+        this.imgCanoBaixo.src = `${Constantes.CONTEXT_PATH}/assets/cano_baixo.png`;
         this.distanciaCanos = 75;
         this.width = 50;
         this.height = 300;

@@ -1,10 +1,12 @@
+import { Constantes } from "./Constantes.js";
+
 export default class Player {
     constructor(contexto) {
         this.contexto = contexto;
         this.imgs = new Array(new Image(), new Image(), new Image());
-        this.imgs[0].src = '/flappybird-js-canvas/assets/passaro1.png';
-        this.imgs[1].src = '/flappybird-js-canvas/assets/passaro2.png';
-        this.imgs[2].src = '/flappybird-js-canvas/assets/passaro3.png';
+        this.imgs[0].src = `${Constantes.CONTEXT_PATH}/assets/passaro1.png`;
+        this.imgs[1].src = `${Constantes.CONTEXT_PATH}/assets/passaro2.png`;
+        this.imgs[2].src = `${Constantes.CONTEXT_PATH}/assets/passaro3.png`;
         this.variaImg = 0;
         this.liga = true;
         this.velocidadeQueda = 0;

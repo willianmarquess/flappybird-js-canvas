@@ -1,9 +1,11 @@
+import { Constantes } from "./Constantes.js";
+
 export default class Fase {
 
     constructor(contexto) {
         this.contexto = contexto;
         this.imgFundo = new Image();
-        this.imgFundo.src = '/flappybird-js-canvas/assets/fundo.png';
+        this.imgFundo.src = `${Constantes.CONTEXT_PATH}/assets/fundo.png`;
 
     }
     draw() {

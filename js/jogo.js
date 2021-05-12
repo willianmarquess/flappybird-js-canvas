@@ -17,11 +17,11 @@ var deltaTime;
 var lastTime;
 
 document.addEventListener("DOMContentLoaded", () => {
- Start();
+    Start();
 });
 
 function Start() {
-    FPS = 1000 / 60
+    FPS = 1000 / 30
     deltaTime = 0
     lastTime = 0
     document.getElementsByTagName("body")[0].addEventListener("click", onClick);
@@ -39,47 +39,47 @@ function Start() {
 }
 
 function LoopGame(time) {
-     deltaTime = (time - lastTime) / FPS
-     lastTime = time
-     contexto.clearRect(0, 0, canvas.width, canvas.height);
-        fase.draw();
-        player.draw();
-        if (gameStatus == 1) {
-            cano.draw();
-            cano.move();
-            chao.draw();
-            player.velocidadeQueda += 0.2;
+    deltaTime = (time - lastTime) / FPS
+    lastTime = time
+    contexto.clearRect(0, 0, canvas.width, canvas.height);
+    fase.draw();
+    player.draw();
+    if (gameStatus == 1) {
+        cano.draw();
+        cano.move();
+        chao.draw();
+        player.velocidadeQueda += 0.2;
 
-            //detecta colisão
-            if ((player.x + player.width - 5) >= (cano.posicaoRealCanoBaixoX) && cano.posicaoRealCanoTopoX >= 0 &&
-                player.y <= (cano.posicaoRealCanoTopoY + cano.height) ||
-                (player.x + player.width - 5) >= cano.posicaoRealCanoBaixoX && cano.posicaoRealCanoBaixoX >= 0 &&
-                (player.y + player.height - 5) >= (cano.posicaoRealCanoBaixoY)) {
-                gameStatus = 0;
-            }
-            if (player.y >= (500 - player.height)) {
-                gameStatus = 0;
-            }
-
-            if (cano.posicaoRealCanoTopoX <= 0 && podePontuar) {
-                pontos++;
-                console.log(pontos);
-                podePontuar = false;
-            }
-
-            if (cano.posicaoRealCanoTopoX >= 400) {
-                podePontuar = true;
-            }
-
-            player.y = player.y + player.velocidadeQueda;
-
-            contexto.font = "15px Arial";
-            contexto.fillText("Pontos: " + pontos, 10, 20);
-
-        } else if (gameStatus == 0) {
-            //Start();
+        //detecta colisão
+        if ((player.x + player.width - 5) >= (cano.posicaoRealCanoBaixoX) && cano.posicaoRealCanoTopoX >= 0 &&
+            player.y <= (cano.posicaoRealCanoTopoY + cano.height) ||
+            (player.x + player.width - 5) >= cano.posicaoRealCanoBaixoX && cano.posicaoRealCanoBaixoX >= 0 &&
+            (player.y + player.height - 5) >= (cano.posicaoRealCanoBaixoY)) {
+            gameStatus = 0;
         }
-        requestAnimationFrame(LoopGame);
+        if (player.y >= (500 - player.height)) {
+            gameStatus = 0;
+        }
+
+        if (cano.posicaoRealCanoTopoX <= 0 && podePontuar) {
+            pontos++;
+            console.log(pontos);
+            podePontuar = false;
+        }
+
+        if (cano.posicaoRealCanoTopoX >= 400) {
+            podePontuar = true;
+        }
+
+        player.y = player.y + player.velocidadeQueda;
+
+        contexto.font = "15px Arial";
+        contexto.fillText("Pontos: " + pontos, 10, 20);
+
+    } else if (gameStatus == 0) {
+        //Start();
+    }
+    requestAnimationFrame(LoopGame);
 }
 
 function keyPress(e) {

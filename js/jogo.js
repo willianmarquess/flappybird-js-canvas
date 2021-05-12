@@ -62,7 +62,7 @@ function LoopGame() {
             contexto.fillText("Pontos: " + pontos, 10, 20);
 
         } else if (gameStatus == 0) {
-            location.reload();
+            document.location.reload(true);
         }
         requestAnimationFrame(LoopGame);
     }, 1000 / 50);

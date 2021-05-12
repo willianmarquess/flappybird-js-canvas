@@ -3,6 +3,15 @@ import Player from "./Player.js";
 import Cano from './Cano.js';
 import Chao from './Chao.js';
 
+var canvas;
+var contexto;
+var fase;
+var player;
+var cano;
+var chao;
+var gameStatus;
+var pontos;
+var podePontuar;
 
 document.addEventListener("DOMContentLoaded", () => {
  Start();
@@ -11,15 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function Start() {
     document.getElementsByTagName("body")[0].addEventListener("click", onClick);
     document.getElementsByTagName("body")[0].addEventListener("keydown", keyPress);
-    var canvas = document.getElementById("meujogo");
-    var contexto = canvas.getContext("2d");
-    var fase = new Fase(contexto);
-    var player = new Player(contexto);
-    var cano = new Cano(contexto);
-    var chao = new Chao(contexto);
-    var gameStatus = 1;
-    var pontos = 0;
-    var podePontuar = true;
+    canvas = document.getElementById("meujogo");
+    contexto = canvas.getContext("2d");
+    fase = new Fase(contexto);
+    player = new Player(contexto);
+    cano = new Cano(contexto);
+    chao = new Chao(contexto);
+    gameStatus = 1;
+    pontos = 0;
+    podePontuar = true;
     LoopGame();
 }
 

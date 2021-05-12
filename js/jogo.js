@@ -35,7 +35,6 @@ function Start() {
     gameStatus = 1;
     pontos = 0;
     podePontuar = true;
-    LoopGame();
     requestAnimationFrame(LoopGame)
 }
 

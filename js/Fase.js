@@ -3,7 +3,7 @@ export default class Fase {
     constructor(contexto) {
         this.contexto = contexto;
         this.imgFundo = new Image();
-        this.imgFundo.src = '../assets/fundo.png';
+        this.imgFundo.src = 'assets/fundo.png';
 
     }
     draw() {

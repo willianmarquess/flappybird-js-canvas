@@ -12,12 +12,18 @@ var chao;
 var gameStatus;
 var pontos;
 var podePontuar;
+var FPS;
+var deltaTime;
+var lastTime;
 
 document.addEventListener("DOMContentLoaded", () => {
  Start();
 });
 
 function Start() {
+    FPS = 1000 / 60
+    deltaTime = 0
+    lastTime = 0
     document.getElementsByTagName("body")[0].addEventListener("click", onClick);
     document.getElementsByTagName("body")[0].addEventListener("keydown", keyPress);
     canvas = document.getElementById("meujogo");
@@ -30,11 +36,13 @@ function Start() {
     pontos = 0;
     podePontuar = true;
     LoopGame();
+    requestAnimationFrame(LoopGame)
 }
 
-function LoopGame() {
-    setTimeout(() => {
-        contexto.clearRect(0, 0, canvas.width, canvas.height);
+function LoopGame(time) {
+     deltaTime = (time - lastTime) / FPS
+     lastTime = time
+     contexto.clearRect(0, 0, canvas.width, canvas.height);
         fase.draw();
         player.draw();
         if (gameStatus == 1) {
@@ -73,7 +81,6 @@ function LoopGame() {
             Start();
         }
         requestAnimationFrame(LoopGame);
-    }, 1000 / 50);
 }
 
 function keyPress(e) {
